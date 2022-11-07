@@ -7,11 +7,22 @@ function ExpensiveItem(props){
     const expensiveAmount='500.52';
     const LocationOfExpenditure='Hyderabad';
 
+    const month=props.date.getMonth();
+    const day=props.date.getDate();
+    const year=props.date.getFullYear();
+
     return(
-        <div>
-            <div className='expensive-item'></div>
+        <div className='expensive-item'>
+
+
+
+
+            <div>
+                <div>{month}</div>
+                <div>{day}</div>
+                <div>{year}</div>
+            </div>
             <div>{LocationOfExpenditure}-</div>
-            <div>{expensiveDate.toISOString()}</div>
             <div className='expensive-item__description'>
                 <h2>{props.title}</h2>
                 <div className='expensive-item__price'>{expensiveAmount}</div>
