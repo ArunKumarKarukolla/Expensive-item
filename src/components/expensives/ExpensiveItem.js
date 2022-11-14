@@ -1,3 +1,6 @@
+//import './ExpensiveItems.css';
+import ExpensiveDate from './ExpensiveDate';
+import Card from '../UI/Card';
 import './ExpensiveItems.css';
 
 
@@ -11,24 +14,21 @@ function ExpensiveItem(props){
     const day=props.date.getDate();
     const year=props.date.getFullYear();
 
+    const clickHandler=()=>{
+        console.log('clicked!!');
+    }
+
     return(
-        <div className='expensive-item'>
-
-
-
-
-            <div>
-                <div>{month}</div>
-                <div>{day}</div>
-                <div>{year}</div>
-            </div>
+        <Card className='expensive-item'>
+            <ExpensiveDate date={props.date}/>
             <div>{LocationOfExpenditure}-</div>
             <div className='expensive-item__description'>
                 <h2>{props.title}</h2>
                 <div className='expensive-item__price'>{expensiveAmount}</div>
 
             </div>
-        </div>
+            <button onClick ={clickHandler}>Delete Expensive</button>
+        </Card>
 
     );
    
