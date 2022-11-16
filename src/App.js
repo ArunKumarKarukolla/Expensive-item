@@ -1,4 +1,5 @@
 import React from 'react';
+import NewExpensive from './components/NewExpensive/NewExpensive';
 import ExpensiveItem from './components/expensives/ExpensiveItem';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
  // return React.createElement('div',{},React.createElement('h2',{},'Lets get started'),React.createElement(expenses,{items:expenses}));
  return(
     <div>
-      <h2>Lets get started </h2>
+      <NewExpensive/>
       {expenses.map((expenses)=>{
         return(
           <ExpensiveItem
