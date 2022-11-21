@@ -28,9 +28,14 @@ function App() {
     },
   ];
  // return React.createElement('div',{},React.createElement('h2',{},'Lets get started'),React.createElement(expenses,{items:expenses}));
+
+ const addExpensiveHandler=expenses =>{
+  console.log('In App.js')
+  console.log(expenses)
+ }
  return(
     <div>
-      <NewExpensive/>
+      <NewExpensive onAssExpensive={addExpensiveHandler}/>
       {expenses.map((expenses)=>{
         return(
           <ExpensiveItem
