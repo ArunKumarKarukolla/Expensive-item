@@ -30,7 +30,7 @@ function ExpensiveItem(props){
             <ExpensiveDate date={props.date}/>
             <div>{LocationOfExpenditure}-</div>
             <div className='expensive-item__description'>
-                <h2>{title}</h2>
+                <h2>{props.title}</h2>
                 <div className='expensive-item__price'>{amount}</div>
 
             </div>

@@ -29,10 +29,10 @@ const ExpensiveForm =(props)=>{
             amount:enterAmount,
             date:new Date(enterDate)
         }
-        props.onSaveExpensiveData(expensiveData);
-        setEnterTitle('');
-        setEnterAmount('');
-        setEnterDate('');
+       props.onSaveExpensiveData(expensiveData);
+       setEnterTitle('');
+       setEnterAmount('');
+       setEnterDate('');
 
     };
 

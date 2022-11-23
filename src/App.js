@@ -1,6 +1,7 @@
 import React from 'react';
 import NewExpensive from './components/NewExpensive/NewExpensive';
 import ExpensiveItem from './components/expensives/ExpensiveItem';
+import Expensive from './components/expensives/Expensive';
 
 function App() {
   const expenses = [
@@ -33,9 +34,11 @@ function App() {
   console.log('In App.js')
   console.log(expenses)
  }
+ console.log('hello');
  return(
     <div>
-      <NewExpensive onAssExpensive={addExpensiveHandler}/>
+      <NewExpensive onAddExpensive={addExpensiveHandler}/>
+      <Expensive items={expenses}/>
       {expenses.map((expenses)=>{
         return(
           <ExpensiveItem

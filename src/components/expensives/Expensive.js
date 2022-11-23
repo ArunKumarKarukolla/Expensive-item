@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ExpensiveItem from './ExpensiveItem';
 import Card from '../UI/Card';
+import ExpensiveFilter from './ExpensiveFilter';
 import './Expensive.css';
 
 const Expensive = (props) => {
+
+  const [filteredyear,setFilterYear] = useState('2020');
+
+  const filterChangeHandler=selectedYear=>{
+    setFilterYear(selectedYear);
+  }
+  console.log('arun');
+
   return (
     <Card className="expenses">
+      <ExpensiveFilter selected={filteredyear} onChangeFilter={filterChangeHandler}/>
       <ExpensiveItem
         title={props.items[0].title}
         amount={props.items[0].amount}
