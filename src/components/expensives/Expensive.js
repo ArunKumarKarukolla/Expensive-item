@@ -1,44 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import ExpensiveItem from './ExpensiveItem';
-import Card from '../UI/Card';
-import ExpensiveFilter from './ExpensiveFilter';
-import './Expensive.css';
+import ExpensiveItem from "./ExpensiveItem";
+import Card from "../UI/Card";
+import ExpensiveFilter from "./ExpensiveFilter";
+import "./Expensive.css";
 
 const Expensive = (props) => {
+  const [filteredyear, setFilterYear] = useState("2020");
 
-  const [filteredyear,setFilterYear] = useState('2020');
-
-  const filterChangeHandler=selectedYear=>{
+  const filterChangeHandler = (selectedYear) => {
     setFilterYear(selectedYear);
-  }
-  console.log('arun');
+  };
+  console.log("items", props.items);
 
   return (
     <Card className="expenses">
-      <ExpensiveFilter selected={filteredyear} onChangeFilter={filterChangeHandler}/>
-      <ExpensiveItem
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
+      <ExpensiveFilter
+        selected={filteredyear}
+        onChangeFilter={filterChangeHandler}
       />
-      <ExpensiveItem
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-        date={props.items[1].date}
-      />
-      <ExpensiveItem
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-        date={props.items[2].date}
-      />
-      <Expensive
-        title={props.items[3].title}
-        amount={props.items[3].amount}
-        date={props.items[3].date}
-      />
+      {props.items.map((expenses) => {
+        return (
+          <ExpensiveItem
+            title={expenses.title}
+            location={expenses.location}
+            amount={expenses.amount}
+            date={expenses.date}
+            key={expenses.id}
+          ></ExpensiveItem>
+        );
+      })}
     </Card>
   );
-}
+};
 
 export default Expensive;
