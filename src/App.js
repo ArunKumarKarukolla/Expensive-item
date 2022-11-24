@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import NewExpensive from './components/NewExpensive/NewExpensive';
 import ExpensiveItem from './components/expensives/ExpensiveItem';
 import Expensive from './components/expensives/Expensive';
 
-function App() {
-  const expenses = [
+
+  const DUMMY__EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -29,29 +29,21 @@ function App() {
     },
   ];
  // return React.createElement('div',{},React.createElement('h2',{},'Lets get started'),React.createElement(expenses,{items:expenses}));
+  const App=()=>{
+    const [expenses,setExpenses]=useState(DUMMY__EXPENSES);
 
- const addExpensiveHandler=expenses =>{
-  console.log('In App.js')
-  console.log(expenses)
- }
- console.log('hello');
+    const addExpensiveHandler=(expenses) =>{
+      setExpenses((prevExpenses)=>{
+        return[expenses,...prevExpenses];
+      });
+    }
+  
+
  return(
     <div>
-      <NewExpensive onAddExpensive={addExpensiveHandler}/>
+      <NewExpensive onAddExpense={addExpensiveHandler}/>
       <Expensive items={expenses}/>
-      {expenses.map((expenses)=>{
-        return(
-          <ExpensiveItem
-          title={expenses.title}
-         location={expenses.location}
-          amount={expenses.amount}
-          date={expenses.date}
-          key={expenses.id}
-          ></ExpensiveItem>
-
-       );
-    })}
-
+  
 
 
 
