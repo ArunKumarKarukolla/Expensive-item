@@ -13,13 +13,17 @@ const Expensive = (props) => {
   };
   console.log("items", props.items);
 
+  const filteredExpenses=props.items.filter(expense=>{
+    return expense.date.getFullYear().toString()===filteredyear;
+  });
+
   return (
     <Card className="expenses">
       <ExpensiveFilter
         selected={filteredyear}
         onChangeFilter={filterChangeHandler}
       />
-      {props.items.map((expenses) => {
+      {filteredExpenses.map((expenses) => {
         return (
           <ExpensiveItem
             title={expenses.title}
